@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MtpConfigurations.Abstractions" Version="1.0.6" />
+      <PackageReference Include="MtpTenants.Abstractions" Version="1.0.3" />
+      <PackageReference Include="MtQueries.Abstractions" Version="1.0.15" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    </ItemGroup>
+
+</Project>

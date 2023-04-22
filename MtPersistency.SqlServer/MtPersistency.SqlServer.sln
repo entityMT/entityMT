@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtPersistency.SqlServer", "MtPersistency.SqlServer\MtPersistency.SqlServer.csproj", "{09318C10-0A22-4EBE-86E3-5BA655288432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtPersistency.SqlServer.UnitTests", "MtPersistency.SqlServer.UnitTests\MtPersistency.SqlServer.UnitTests.csproj", "{F712E05D-6161-42AD-9B19-6C9AF95CDF6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09318C10-0A22-4EBE-86E3-5BA655288432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09318C10-0A22-4EBE-86E3-5BA655288432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09318C10-0A22-4EBE-86E3-5BA655288432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09318C10-0A22-4EBE-86E3-5BA655288432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F712E05D-6161-42AD-9B19-6C9AF95CDF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F712E05D-6161-42AD-9B19-6C9AF95CDF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F712E05D-6161-42AD-9B19-6C9AF95CDF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F712E05D-6161-42AD-9B19-6C9AF95CDF6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

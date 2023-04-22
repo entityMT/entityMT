@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTQueries.SqlServer", "MTQueries.SqlServer\MTQueries.SqlServer.csproj", "{37BA2B47-7C7C-4CFE-B196-4B5F0B7EDAD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTQueries.SqlServer.UnitTests", "MTQueries.SqlServer.UnitTests\MTQueries.SqlServer.UnitTests.csproj", "{EE7853CE-AAA3-43B9-824E-DDAB3C616ECE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTQueries.SqlServer.NetCore", "MTQueries.SqlServer.NetCore\MTQueries.SqlServer.NetCore.csproj", "{54357F90-2B77-4516-83A7-253E0BAD626E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37BA2B47-7C7C-4CFE-B196-4B5F0B7EDAD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37BA2B47-7C7C-4CFE-B196-4B5F0B7EDAD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37BA2B47-7C7C-4CFE-B196-4B5F0B7EDAD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37BA2B47-7C7C-4CFE-B196-4B5F0B7EDAD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7853CE-AAA3-43B9-824E-DDAB3C616ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7853CE-AAA3-43B9-824E-DDAB3C616ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7853CE-AAA3-43B9-824E-DDAB3C616ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7853CE-AAA3-43B9-824E-DDAB3C616ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54357F90-2B77-4516-83A7-253E0BAD626E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54357F90-2B77-4516-83A7-253E0BAD626E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54357F90-2B77-4516-83A7-253E0BAD626E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54357F90-2B77-4516-83A7-253E0BAD626E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTPConfigurations.Abstractions", "MTPConfigurations.Abstractions\MTPConfigurations.Abstractions.csproj", "{A9AF6A20-9D79-4938-BFD2-825D4A1BA36E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTPConfigurations.Implementation", "MTPConfigurations.Implementation\MTPConfigurations.Implementation.csproj", "{57F5767D-F1E7-4B7C-8D25-01FD0430DCA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTPConfigurations.Implementation.UnitTests", "MTPConfigurations.Implementation.UnitTests\MTPConfigurations.Implementation.UnitTests.csproj", "{0C9BCE0E-691D-46FE-9B55-167D66541580}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9AF6A20-9D79-4938-BFD2-825D4A1BA36E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AF6A20-9D79-4938-BFD2-825D4A1BA36E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AF6A20-9D79-4938-BFD2-825D4A1BA36E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AF6A20-9D79-4938-BFD2-825D4A1BA36E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F5767D-F1E7-4B7C-8D25-01FD0430DCA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F5767D-F1E7-4B7C-8D25-01FD0430DCA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F5767D-F1E7-4B7C-8D25-01FD0430DCA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F5767D-F1E7-4B7C-8D25-01FD0430DCA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9BCE0E-691D-46FE-9B55-167D66541580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9BCE0E-691D-46FE-9B55-167D66541580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9BCE0E-691D-46FE-9B55-167D66541580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9BCE0E-691D-46FE-9B55-167D66541580}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

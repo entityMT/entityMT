@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtTenants.Abstractions", "MtTenants.Abstractions\MtTenants.Abstractions.csproj", "{B511724A-145B-4059-ACB5-44DE98A3CFA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtTenants.Implementation", "MtTenants.Implementation\MtTenants.Implementation.csproj", "{7BBC02B5-545D-417A-8118-8B27638711F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtTenants.Implementation.UnitTests", "MtTenants.Implementation.UnitTests\MtTenants.Implementation.UnitTests.csproj", "{3342C5D9-B668-4720-97C1-EA6ADD68594F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B511724A-145B-4059-ACB5-44DE98A3CFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B511724A-145B-4059-ACB5-44DE98A3CFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B511724A-145B-4059-ACB5-44DE98A3CFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B511724A-145B-4059-ACB5-44DE98A3CFA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BBC02B5-545D-417A-8118-8B27638711F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBC02B5-545D-417A-8118-8B27638711F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBC02B5-545D-417A-8118-8B27638711F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBC02B5-545D-417A-8118-8B27638711F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3342C5D9-B668-4720-97C1-EA6ADD68594F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3342C5D9-B668-4720-97C1-EA6ADD68594F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3342C5D9-B668-4720-97C1-EA6ADD68594F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3342C5D9-B668-4720-97C1-EA6ADD68594F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
