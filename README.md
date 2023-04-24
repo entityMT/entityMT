@@ -30,3 +30,7 @@ The classes of this assembly are divided into two groups, the attributes, which 
 . __KeyAttribute:__ Configuration that map the primary key column to object property. <br/>
 . __ForeignKeyAttribute:__ Configuration that map foreign key column to object property. <br/>
 . __JoinTypeAttribute:__ Configuration that map join type (cross, left, right and inner) to the objects relationships.
+
+### Supported DBMS
+
+. Sql Server.
