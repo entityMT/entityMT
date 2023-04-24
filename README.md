@@ -1,10 +1,10 @@
 ## EntityMT
 
-### What is?
+## What is?
 
-Entity MT is a multi-tenant and multi-DBMS data persistence component. It was developed using SOLID principles, design patterns and component segregation best practices.
+Entity MT is a multi-tenant and multi-DBMS data persistence component implemented in .NET 6 (C# language). It was developed using SOLID principles, design patterns and component segregation best practices.
 
-### Structure (UML components diagram)
+## Structure (UML components diagram)
 
 ![Alt text](./Uml/components.png)
 
@@ -31,6 +31,11 @@ The classes of this assembly are divided into two groups, the attributes, which 
 . __ForeignKeyAttribute:__ Configuration that map foreign key column to object property. <br/>
 . __JoinTypeAttribute:__ Configuration that map join type (cross, left, right and inner) to the objects relationships.
 
-### Supported DBMS
+### Persistency assemblies classes (Uml class diagram)
+<p align="center"><img src="./Uml/class_persistency.png"/><p/>
+
+The classes of this assembly are divided into two groups too, the handlers that execute the commands and the formatters, that mount them. These responsibilities were separated to enable the implementation of unit and integration tests (low coupling).
+
+## Supported DBMS
 
 . Sql Server.
