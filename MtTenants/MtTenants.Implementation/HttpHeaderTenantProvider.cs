@@ -4,7 +4,7 @@ using MtTenants.Abstractions;
 
 namespace MtTenants.Implementation
 {
-    internal sealed class HttpHeaderTenantProvider : ITenantProvider
+    public sealed class HttpHeaderTenantProvider : ITenantProvider
     {
         private readonly HttpContext _httpContext;
         private readonly ITenantFactory _tenantFactory;

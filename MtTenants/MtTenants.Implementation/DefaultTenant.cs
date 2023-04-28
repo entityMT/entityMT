@@ -3,7 +3,7 @@ using MtTenants.Abstractions;
 
 namespace MtTenants.Implementation
 {
-    internal sealed class DefaultTenant : ITenant
+    public sealed class DefaultTenant : ITenant
     {
         public DefaultTenant(Guid id, string name)
         {

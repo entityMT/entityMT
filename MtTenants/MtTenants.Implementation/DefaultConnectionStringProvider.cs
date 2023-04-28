@@ -3,7 +3,7 @@ using MtTenants.Abstractions;
 
 namespace MtTenants.Implementation
 {
-    internal sealed class DefaultConnectionStringProvider : IConnectionStringProvider
+    public sealed class DefaultConnectionStringProvider : IConnectionStringProvider
     {
         private readonly IConfiguration _configuration;
         
