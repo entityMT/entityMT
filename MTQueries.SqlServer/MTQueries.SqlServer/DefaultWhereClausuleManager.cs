@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using MTPConfigurations.Abstractions.Attributes;
+using MTConfigurations.Abstractions.Attributes;
 using MTQueries.Abstractions.ClausuleManagers;
 using MTQueries.Abstractions.ClausuleManagers.MemberAccessHandlers;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Reflection;
-using MTPConfigurations.Abstractions.Attributes;
-using MTPConfigurations.Abstractions.Enums;
+using MTConfigurations.Abstractions.Attributes;
+using MTConfigurations.Abstractions.Enums;
 using MTQueries.Abstractions;
 
 namespace MTQueries.SqlServer;

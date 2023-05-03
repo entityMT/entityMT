@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Reflection;
-using MTPConfigurations.Abstractions.Attributes;
+using MTConfigurations.Abstractions.Attributes;
 using MTQueries.Abstractions;
 
 namespace MTQueries.SqlServer;

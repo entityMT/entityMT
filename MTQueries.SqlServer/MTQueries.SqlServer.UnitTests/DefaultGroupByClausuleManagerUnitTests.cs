@@ -1,5 +1,5 @@
 using System.Reflection;
-using MTPConfigurations.Abstractions.Attributes;
+using MTConfigurations.Abstractions.Attributes;
 using MTQueries.SqlServer.UnitTests.Fakers;
 
 namespace MTQueries.SqlServer.UnitTests;

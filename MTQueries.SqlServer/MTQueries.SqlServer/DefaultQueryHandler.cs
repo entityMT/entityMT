@@ -1,6 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
-using MtpTenants.Abstractions;
+using MtTenants.Abstractions;
 using MTQueries.Abstractions;
 
 namespace MTQueries.SqlServer

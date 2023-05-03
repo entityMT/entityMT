@@ -1,5 +1,5 @@
-using MTPConfigurations.Abstractions.Attributes;
-using MTPConfigurations.Abstractions.Enums;
+using MTConfigurations.Abstractions.Attributes;
+using MTConfigurations.Abstractions.Enums;
 
 namespace MTQueries.SqlServer.UnitTests.Fakers;
 

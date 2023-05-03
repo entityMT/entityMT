@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using FluentAssertions;
 using Moq;
-using MTPConfigurations.Abstractions.Attributes;
+using MTConfigurations.Abstractions.Attributes;
 using MTQueries.Abstractions.ClausuleManagers.MemberAccessHandlers;
 using MTQueries.SqlServer.UnitTests.Fakers;
 
