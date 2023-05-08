@@ -42,16 +42,15 @@ In addition, it is also worth mentioning the 'IDbConnectionPersistencyManager' i
 
 This essembly has, basically, two major main responsibilities, being the execution and mount of the queries.<br/>
 The execution of queries is centered on the 'IQueryHandler' interface. Here the finished query, corresponding to the 'IQuery' interface, is executed on the database.<br/>
-The mount proccess of queries is more complex and, therefore, this responsibility was segregated. With this, we can customize how queries are mounted in parts (columns, joins and/or clausules) and advance the solution based on ISO/IEC 25010 quality stands.<br/>
+The mount proccess of queries is more complex and, therefore, this responsibility was segregated. With this, we can customize how queries are mounted in parts (columns, joins and/or clauses) and advance the solution based on ISO/IEC 25010 quality stands.<br/>
 Below is possible to observe each interface linked to the process of mounting the queries:<br/>
 
-. __IQueryBuilder__: Corresponds to the pattern builder and is used by clients to build queries. With clients using only this interface, communication between objects becomes simpler and facilitates future refactorings (Eric Evans addresses this a lot in the book 'DDD: Tackling Complexity in the Heart of Software').
-. __IWhereClausuleManager__:
-. __IOrderByClausuleManager__:
-. __IGroupByClausuleManager__:
-. __IMemberAccessHandler__:
-. __IQueryJoinsGenerator__:
-. __IQuerySelectedColumnsProvider__:
+. __IQueryBuilder__: Corresponds to the pattern builder and is used by clients to build queries. With clients using only this interface, communication between objects becomes simpler and facilitates future refactorings (Eric Evans addresses this a lot in the book 'DDD: Tackling Complexity in the Heart of Software').<br/>
+. __IWhereClausuleManager__: It would be the most complex clause manager with the responsibility of creating the 'where' clause, handling logical operators (and, or, not) and comparison operators (=, <, >, <=, >=, !=, like, etc. ). It is also important to point out that, due to the many possibilities to handle expressions of type 'MemberExpression', a dedicated interface was created for this ('IMemberAccessHanlder'), guaranteeing the principle of extension of SOLID.<br/>
+. __IOrderByClausuleManager__: Represents de order by clause manager.<br/>
+. __IGroupByClausuleManager__: Represents de group by clause manager.<br/>
+. __IQueryJoinsGenerator__: Builder of joins of the sql query.<br/>
+. __IQuerySelectedColumnsProvider__: Give the columns brought by the sql query.<br/>
 
 
 ## Supported DBMS
