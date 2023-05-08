@@ -34,7 +34,25 @@ The classes of this assembly are divided into two groups, the attributes, which 
 ### Persistency assemblies classes (Uml class diagram)
 <p align="center"><img src="./Uml/class_persistency.png"/><p/>
 
-The classes of this assembly are divided into two groups too, the handlers that execute the commands and the formatters, that mount them. These responsibilities were separated to enable the implementation of unit and integration tests (low coupling).
+The classes of this assembly are divided into two groups too, the handlers that execute the commands and the formatters, that mount them. These responsibilities were separated to enable the implementation of unit and integration tests (low coupling).<br/>
+In addition, it is also worth mentioning the 'IDbConnectionPersistencyManager' interface, which is responsible for managing connections with the DBMS.
+
+### Queries assemblies classes (Uml class diagram)
+<p align="center"><img src="./Uml/class_queries.png"/></p>
+
+This essembly has, basically, two major main responsibilities, being the execution and mount of the queries.<br/>
+The execution of queries is centered on the 'IQueryHandler' interface. Here the finished query, corresponding to the 'IQuery' interface, is executed on the database.<br/>
+The mount proccess of queries is more complex and, therefore, this responsibility was segregated. With this, we can customize how queries are mounted in parts (columns, joins and/or clausules) and advance the solution based on ISO/IEC 25010 quality stands.<br/>
+Below is possible to observe each interface linked to the process of mounting the queries:<br/>
+
+. __IQueryBuilder__: Corresponds to the pattern builder and is used by clients to build queries. With clients using only this interface, communication between objects becomes simpler and facilitates future refactorings (Eric Evans addresses this a lot in the book 'DDD: Tackling Complexity in the Heart of Software').
+. __IWhereClausuleManager__:
+. __IOrderByClausuleManager__:
+. __IGroupByClausuleManager__:
+. __IMemberAccessHandler__:
+. __IQueryJoinsGenerator__:
+. __IQuerySelectedColumnsProvider__:
+
 
 ## Supported DBMS
 
