@@ -4,12 +4,17 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>EntityMT</Authors>
+        <Description>A part of entityMT component that provide persistency implementation for DBMS Sql Server</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <RepositoryUrl>https://github.com/entityMT</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MtConfigurations.Abstractions" Version="1.0.4" />
-      <PackageReference Include="MtPersistency.Abstractions" Version="1.0.4" />
-      <PackageReference Include="MtTenants.Abstractions" Version="1.0.2" />
+      <PackageReference Include="MtConfigurations.Abstractions" Version="1.0.0" />
+      <PackageReference Include="MtPersistency.Abstractions" Version="1.0.0" />
+      <PackageReference Include="MtTenants.Abstractions" Version="1.0.0" />
       <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     </ItemGroup>
 
