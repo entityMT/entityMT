@@ -1,4 +1,6 @@
 using System.Linq.Expressions;
+using System.Reflection;
+using MTConfigurations.Abstractions.Attributes;
 using MTQueries.Abstractions;
 using MTQueries.Abstractions.ClausuleManagers;
 
@@ -70,10 +72,21 @@ public sealed class DefaultQueryBuilder<T> : IQueryBuilder<T>
         if (string.IsNullOrEmpty(_select))
             _select = "select ";
 
+        var table = typeof(T).GetCustomAttribute<TableAttribute>();
+
+        var columnsStr = string.Join(",", columns);
+
+        var joinsStr = string.Empty;
+
+        if (joins.Any())
+            joinsStr = string.Join(",", joins);
+
         _select += 
-            columns +
+            columnsStr +
+            " from " +
+            table?.Name +
             " " +
-            joins +
+            joinsStr +
             " " +
             _whereClausuleManager.GetWhere +
             " " +

@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTQueries.SqlServer.UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTQueries.SqlServer.NetCore", "MTQueries.SqlServer.NetCore\MTQueries.SqlServer.NetCore.csproj", "{54357F90-2B77-4516-83A7-253E0BAD626E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTQueries.SqlServer.IntegrationTests", "MTQueries.SqlServer.IntegrationTests\MTQueries.SqlServer.IntegrationTests.csproj", "{E0ABF3B5-001D-45C8-89B7-AF0BE311437E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{54357F90-2B77-4516-83A7-253E0BAD626E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54357F90-2B77-4516-83A7-253E0BAD626E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54357F90-2B77-4516-83A7-253E0BAD626E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0ABF3B5-001D-45C8-89B7-AF0BE311437E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0ABF3B5-001D-45C8-89B7-AF0BE311437E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0ABF3B5-001D-45C8-89B7-AF0BE311437E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0ABF3B5-001D-45C8-89B7-AF0BE311437E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
