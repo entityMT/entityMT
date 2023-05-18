@@ -29,6 +29,9 @@ public sealed class DefaultQuerySelectedColumnsProvider<T> : IQuerySelectedColum
 
         foreach (var property in properties)
         {
+            if (property.GetCustomAttribute<GhostAttribute>() != default)
+                continue;
+            
             if (property.PropertyType.IsClass)
             {
                 if (typeof(String) != property.PropertyType)

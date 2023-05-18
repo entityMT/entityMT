@@ -30,6 +30,9 @@ public sealed class DefaultQueryJoinsGenerator<T> : IQueryJoinsGenerator<T>
 
         foreach (var property in properties)
         {
+            if (property.GetCustomAttribute<GhostAttribute>() != default)
+                continue;
+            
             if ((property.PropertyType.IsClass
                 && property.PropertyType != typeof(string)) || 
                 (property.PropertyType.IsAssignableTo(typeof(IEnumerable))
