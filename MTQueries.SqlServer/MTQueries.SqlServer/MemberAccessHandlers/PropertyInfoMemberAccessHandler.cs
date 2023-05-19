@@ -20,7 +20,7 @@ namespace MTQueries.SqlServer.MemberAccessHandlers
                         || propertyType == typeof(Guid)
                         || propertyType == typeof(DateTime)))
                 {
-                    var @delegate = Expression.Lambda<Func<object>>(node).Compile();
+                    var @delegate = Expression.Lambda(node).Compile();
                     value = @delegate.DynamicInvoke()!;
 
                     return true;

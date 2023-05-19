@@ -1,8 +1,9 @@
 using System.Reflection;
 using FluentAssertions;
-using MTConfigurations.Abstractions;
 using MTConfigurations.Abstractions.Attributes;
+using MTQueries.Abstractions.ClausuleManagers.MemberAccessHandlers;
 using MTQueries.SqlServer.IntegrationTests.Fakers;
+using MTQueries.SqlServer.MemberAccessHandlers;
 
 namespace MTQueries.SqlServer.IntegrationTests;
 
@@ -319,5 +320,315 @@ public sealed class DefaultQueryBuilderIntegrationTests
                      $"INNER JOIN {simpleTable!.Name} ON {simpleTable!.Name}.{simpleIdColumn!.Name} = {innerJoinTable!.Name}.{innerJoinFkColumn!.Name}", query.Content.Trim());
         
         Assert.Empty(query.Parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with DateTime.")]
+    public void Build_MemberAccessHandlerDateTime_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Date = DateTime.Now
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Date == filter.Date);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Date);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with integer.")]
+    public void Build_MemberAccessHandlerInt_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Integer = 3
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Int == filter.Integer);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Integer);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with bool.")]
+    public void Build_MemberAccessHandlerBool_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Bool = true
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Bool == filter.Bool);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Bool);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with byte.")]
+    public void Build_MemberAccessHandlerByte_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Byte = (byte)2
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Byte == filter.Byte);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Byte);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with char.")]
+    public void Build_MemberAccessHandlerChar_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Char = 'a'
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Byte == filter.Char);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Char);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with decimal.")]
+    public void Build_MemberAccessHandlerDecimal_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Decimal = (decimal)13.2
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Decimal == filter.Decimal);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Decimal);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with double.")]
+    public void Build_MemberAccessHandlerDouble_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Double = 10.5
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Double == filter.Double);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Double);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with long.")]
+    public void Build_MemberAccessHandlerLong_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Long = (long)1000
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Long == filter.Long);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Long);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with string.")]
+    public void Build_MemberAccessHandlerString_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            String = "abcdefghijklmnopqrstuvxz"
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.String == filter.String);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.String);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
+    }
+    
+    [Fact(DisplayName = "Member Access Handler with Guid.")]
+    public void Build_MemberAccessHandlerGuid_Success()
+    {
+        // prepare
+        var memberAccessHandlers= new List<IMemberAccessHandler>(){new PropertyInfoMemberAccessHandler()};
+            
+        var queryBuilder = new DefaultQueryBuilder<MemberAccessHandlerEntity>(
+            new DefaultGroupByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultOrderByClausuleManager<MemberAccessHandlerEntity>(),
+            new DefaultWhereClausuleManager<MemberAccessHandlerEntity>(memberAccessHandlers),
+            new DefaultQuerySelectedColumnsProvider<MemberAccessHandlerEntity>(),
+            new DefaultQueryJoinsGenerator<MemberAccessHandlerEntity>());
+
+        var filter = new
+        {
+            Guid = Guid.NewGuid()
+        };
+        
+        // act
+        queryBuilder.SetFilter(e => e.Guid == filter.Guid);
+        var query = queryBuilder.Build();
+
+        // assert
+        Assert.NotNull(query);
+
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("param_1", filter.Guid);
+
+        query.Parameters.Should().BeEquivalentTo(parameters);
     }
 }
