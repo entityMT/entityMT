@@ -7,6 +7,11 @@ namespace Queries.SqlServer.Entities;
 [Table("Tutor")]
 public sealed class Tutor
 {
+    public Tutor()
+    {
+        Pets = new List<Pet>();
+    }
+    
     [Key]
     [Column("tutorId", ValueGenerated.Automatic)]
     public int Id { get; set; }
@@ -16,4 +21,7 @@ public sealed class Tutor
     
     [Column("document", ValueGenerated.Manual)]
     public string Document { get; set; } = null!;
+    
+    [Ghost]
+    public IEnumerable<Pet> Pets { get; }
 }

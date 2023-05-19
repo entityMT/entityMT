@@ -9,8 +9,8 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
-      <PackageReference Include="MTConfigurations.Abstractions" Version="1.0.0" />
-      <PackageReference Include="MTQueries.SqlServer.NetCore" Version="1.0.2" />
+      <PackageReference Include="MTConfigurations.Abstractions" Version="1.0.1" />
+      <PackageReference Include="MTQueries.SqlServer.NetCore" Version="1.0.5" />
     </ItemGroup>
 
     <ItemGroup>
