@@ -11,7 +11,7 @@ namespace MTQueries.SqlServer.MemberAccessHandlers
             if (node.Member.MemberType == MemberTypes.Property)
             {
                 var property = node.Member as PropertyInfo;
-                var propertyType = property?.GetType();
+                var propertyType = property?.PropertyType;
                 
                 if (propertyType != default && 
                     (propertyType.IsPrimitive
