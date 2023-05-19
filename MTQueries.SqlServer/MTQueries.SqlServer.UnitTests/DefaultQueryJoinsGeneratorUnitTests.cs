@@ -188,4 +188,53 @@ public sealed class DefaultQueryJoinsGeneratorUnitTests
                 $"CROSS JOIN {targetTable!.Name} ON {targetTable.Name}.{targetPrimaryKeyColumn!.Name} = {sourceTable!.Name}.{sourceForeignKeyColumn!.Name}"
             });
     }
+    
+    [Fact(DisplayName = "More than one join")]
+    public async Task GetJoins_MoreThanOneJoin_Success()
+    {
+        // prepare
+        var joinGenerator = new DefaultQueryJoinsGenerator<MoreThanOneJoinEntity>();
+        var cancellationTokenSource = new CancellationTokenSource();
+        var cancellationToken = cancellationTokenSource.Token;
+        
+        // act
+        var joins = await joinGenerator.GetJoinsAsync(cancellationToken);
+        
+        // assert
+        var sourceTable = typeof(MoreThanOneJoinEntity).GetCustomAttribute<TableAttribute>();
+        var innerJoinTable = typeof(InnerJoinEntity).GetCustomAttribute<TableAttribute>();
+        var simpleTable = typeof(SimpleEntity).GetCustomAttribute<TableAttribute>();
+        
+        var sourceForeignKeyProperty = typeof(MoreThanOneJoinEntity)
+            .GetProperties()
+            .FirstOrDefault(p =>
+                p.GetCustomAttribute<ForeignKeyAttribute>() != default);
+        
+        var innerJoinPrimaryKeyProperty = typeof(InnerJoinEntity)
+            .GetProperties()
+            .FirstOrDefault(p =>
+                p.GetCustomAttribute<KeyAttribute>() != default);
+        
+        var innerJoinForeignKeyProperty = typeof(InnerJoinEntity)
+            .GetProperties()
+            .FirstOrDefault(p =>
+                p.GetCustomAttribute<ForeignKeyAttribute>() != default);
+
+        var simplePrimaryKeyProperty = typeof(SimpleEntity)
+            .GetProperties()
+            .FirstOrDefault(p =>
+                p.GetCustomAttribute<KeyAttribute>() != default);
+        
+        var sourceForeignKeyColumn = sourceForeignKeyProperty!.GetCustomAttribute<ColumnAttribute>();
+        var innerJoinForeignKeyColumn = innerJoinForeignKeyProperty!.GetCustomAttribute<ColumnAttribute>();
+        var innerJoinPrimaryKeyColumn = innerJoinPrimaryKeyProperty!.GetCustomAttribute<ColumnAttribute>();
+        var simplePrimaryKeyColumn = simplePrimaryKeyProperty!.GetCustomAttribute<ColumnAttribute>();
+        
+        joins.Should().BeEquivalentTo(
+            new[]
+            {
+                $"INNER JOIN {innerJoinTable!.Name} ON {innerJoinTable.Name}.{innerJoinPrimaryKeyColumn!.Name} = {sourceTable!.Name}.{sourceForeignKeyColumn!.Name}",
+                $"INNER JOIN {simpleTable!.Name} ON {simpleTable!.Name}.{simplePrimaryKeyColumn!.Name} = {innerJoinTable.Name}.{innerJoinForeignKeyColumn!.Name}"
+            });
+    }
 }

@@ -250,4 +250,74 @@ public sealed class DefaultQueryBuilderIntegrationTests
 
         parameters.Should().BeEquivalentTo(query.Parameters);
     }
+
+    [Fact(DisplayName = "More than one join.")]
+    public void Build_MoreThanOneJoin_Success()
+    {
+        // prepare
+        var queryBuilder = new DefaultQueryBuilder<MoreThanOneJoinEntity>(
+            new DefaultGroupByClausuleManager<MoreThanOneJoinEntity>(),
+            new DefaultOrderByClausuleManager<MoreThanOneJoinEntity>(),
+            new DefaultWhereClausuleManager<MoreThanOneJoinEntity>(null!),
+            new DefaultQuerySelectedColumnsProvider<MoreThanOneJoinEntity>(),
+            new DefaultQueryJoinsGenerator<MoreThanOneJoinEntity>());
+        
+        // act
+        var query = queryBuilder.Build();
+
+        // assert
+        var moreThanOneJoinTable = typeof(MoreThanOneJoinEntity).GetCustomAttribute<TableAttribute>();
+        var moreThanOneJoinProperties = typeof(MoreThanOneJoinEntity).GetProperties();
+        var moreThanOneJoinIdColumn = moreThanOneJoinProperties
+            .First(p => p.GetCustomAttribute<KeyAttribute>() != default)
+            .GetCustomAttribute<ColumnAttribute>();
+        var moreThanOneJoinNameColumn = moreThanOneJoinProperties
+            .First(p => p.Name == nameof(MoreThanOneJoinEntity.Name))
+            .GetCustomAttribute<ColumnAttribute>();
+        var moreThanOneJoinFkColumn = moreThanOneJoinProperties
+            .First(p => p.Name == nameof(MoreThanOneJoinEntity.InnerJoinId))
+            .GetCustomAttribute<ColumnAttribute>();
+
+        var innerJoinTable = typeof(InnerJoinEntity).GetCustomAttribute<TableAttribute>();
+        var innerJoinProperties = typeof(InnerJoinEntity).GetProperties();
+        var innerJoinIdColumn = innerJoinProperties
+            .First(p => p.GetCustomAttribute<KeyAttribute>() != default)
+            .GetCustomAttribute<ColumnAttribute>();
+        var innerJoinDescriptionColumn = innerJoinProperties
+            .First(p => p.Name == nameof(InnerJoinEntity.Description))
+            .GetCustomAttribute<ColumnAttribute>();
+        var innerJoinFkColumn = innerJoinProperties
+            .First(p => p.Name == nameof(InnerJoinEntity.SimpleEntityId))
+            .GetCustomAttribute<ColumnAttribute>();
+
+        var simpleTable = typeof(SimpleEntity).GetCustomAttribute<TableAttribute>();
+        var simpleProperties = typeof(SimpleEntity).GetProperties();
+        var simpleIdColumn = simpleProperties
+            .First(p => p.GetCustomAttribute<KeyAttribute>() != default)
+            .GetCustomAttribute<ColumnAttribute>();
+        var simpleNameColumn = simpleProperties
+            .First(p => p.Name == nameof(SimpleEntity.Name))
+            .GetCustomAttribute<ColumnAttribute>();
+        var simpleYearColumn = simpleProperties
+            .First(p => p.Name == nameof(SimpleEntity.Years))
+            .GetCustomAttribute<ColumnAttribute>();
+        
+        Assert.NotNull(query);
+        Assert.Equal($"select " +
+                     $"{moreThanOneJoinTable!.Name}.{moreThanOneJoinIdColumn!.Name}," +
+                     $"{moreThanOneJoinTable!.Name}.{moreThanOneJoinNameColumn!.Name}," +
+                     $"{moreThanOneJoinTable!.Name}.{moreThanOneJoinFkColumn!.Name}," +
+                     $"{innerJoinTable!.Name}.{innerJoinIdColumn!.Name}," +
+                     $"{innerJoinTable!.Name}.{innerJoinDescriptionColumn!.Name}," +
+                     $"{innerJoinTable!.Name}.{innerJoinFkColumn!.Name}," +
+                     $"{simpleTable!.Name}.{simpleIdColumn!.Name}," +
+                     $"{simpleTable!.Name}.{simpleNameColumn!.Name}," +
+                     $"{simpleTable!.Name}.{simpleYearColumn!.Name} " +
+                     $"from " +
+                     $"{moreThanOneJoinTable!.Name} " +
+                     $"INNER JOIN {innerJoinTable!.Name} ON {innerJoinTable!.Name}.{innerJoinIdColumn!.Name} = {moreThanOneJoinTable!.Name}.{moreThanOneJoinFkColumn.Name} " +
+                     $"INNER JOIN {simpleTable!.Name} ON {simpleTable!.Name}.{simpleIdColumn!.Name} = {innerJoinTable!.Name}.{innerJoinFkColumn!.Name}", query.Content.Trim());
+        
+        Assert.Empty(query.Parameters);
+    }
 }

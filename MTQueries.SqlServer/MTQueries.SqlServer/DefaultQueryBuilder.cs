@@ -79,7 +79,7 @@ public sealed class DefaultQueryBuilder<T> : IQueryBuilder<T>
         var joinsStr = string.Empty;
 
         if (joins.Any())
-            joinsStr = string.Join(",", joins);
+            joinsStr = string.Join(" ", joins);
 
         _select += 
             columnsStr +
