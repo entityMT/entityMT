@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: MsSqlServer
+    environment:
+     - ACCEPT_EULA=Y
+     - SA_USERNAME: sa
+     - SA_PASSWORD=ENTITYMT2023
+    ports:
+     - "1433:1433"
+    volumes:
+     - ./volumes/sqlserver:/var/opt/mssql/data
