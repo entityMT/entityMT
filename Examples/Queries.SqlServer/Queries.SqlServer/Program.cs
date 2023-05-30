@@ -183,3 +183,29 @@ catch (Exception ex)
 {
     Console.WriteLine("Error on pet medical history query: " + ex.Message);
 }
+
+Console.WriteLine("Pet query with tutor and medical history ordered by appointment date...");
+
+petMedicalHistoryQueryBuilder?.Reset();
+petMedicalHistoryQueryBuilder?.SetOrder(mh => mh.AppointmentDate);
+
+query = petMedicalHistoryQueryBuilder?.Build();
+
+try
+{
+    var petMedicalHistory = await petMedicalHistoryQueryHandler!.HandleAsync(query!, default);
+    
+    Console.ForegroundColor = ConsoleColor.DarkCyan;
+    Console.WriteLine($"Id - Pet Name - Tutor Name - Comments");
+    
+    foreach (var medicalHistory in petMedicalHistory)
+        Console.WriteLine($"{medicalHistory.Id} - {medicalHistory.Pet.Name} - {medicalHistory.Pet.Tutor.Name} - {medicalHistory.Comments}");
+    
+    Console.WriteLine("Query: " + query?.Content);
+    
+    Console.ForegroundColor = ConsoleColor.White;
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error on pet medical history ordered by appointment date query: " + ex.Message);
+}
